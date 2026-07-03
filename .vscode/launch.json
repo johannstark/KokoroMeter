@@ -1,0 +1,60 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Debug Kokoro Command",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "cli.main",
+      "args": ["${input:kokoroCommand}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "justMyCode": true
+    },
+    {
+      "name": "Python: Debug Daemon Foreground",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "cli.main",
+      "args": ["_run_daemon"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "justMyCode": true
+    },
+    {
+      "name": "Python: Debug CLI Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["cli/tests", "-q"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "justMyCode": true
+    },
+    {
+      "name": "PlatformIO: Debug Firmware (esp32dev)",
+      "type": "platformio-debug",
+      "request": "launch",
+      "projectEnvName": "esp32dev",
+      "preLaunchTask": "Firmware: Build (esp32dev)"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "kokoroCommand",
+      "type": "pickString",
+      "description": "Select a Kokoro CLI command to debug",
+      "options": ["status", "start", "stop", "setup"],
+      "default": "status"
+    }
+  ]
+}

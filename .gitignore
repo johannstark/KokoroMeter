@@ -1,3 +1,92 @@
-# pixi environments
-.pixi/*
+# -----------------------------
+# Pixi / Conda-style environments
+# -----------------------------
+.pixi/
 !.pixi/config.toml
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Native extension/build outputs
+*.so
+*.dylib
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Testing / coverage / type-check caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Logs
+*.log
+
+# -----------------------------
+# ESP32 / PlatformIO (firmware)
+# -----------------------------
+firmware/.pio/
+firmware/.piolibdeps/
+firmware/.sconsign.dblite
+firmware/compile_commands.json
+
+# -----------------------------
+# macOS
+# -----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Spotlight / Trash
+.Spotlight-V100
+.Trashes
+
+# -----------------------------
+# Editors / IDEs
+# -----------------------------
+.idea/
+
+# VS Code local workspace state
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# -----------------------------
+# Environment / local secrets
+# -----------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------
+# Generic temp files
+# -----------------------------
+*.tmp
+*.swp
+*~

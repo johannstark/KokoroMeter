@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.debugpy",
+    "charliermarsh.ruff",
+    "platformio.platformio-ide",
+    "ms-vscode.cpptools",
+    "renan-r-santos.pixi-code"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Pixi: Install",
+      "type": "shell",
+      "command": "pixi install",
+      "problemMatcher": []
+    },
+    {
+      "label": "CLI: Status",
+      "type": "shell",
+      "command": "pixi run python -m cli.main status",
+      "problemMatcher": []
+    },
+    {
+      "label": "CLI: Start Daemon",
+      "type": "shell",
+      "command": "pixi run python -m cli.main start",
+      "problemMatcher": []
+    },
+    {
+      "label": "CLI: Stop Daemon",
+      "type": "shell",
+      "command": "pixi run python -m cli.main stop",
+      "problemMatcher": []
+    },
+    {
+      "label": "CLI: Setup Firmware (Upload)",
+      "type": "shell",
+      "command": "pixi run python -m cli.main setup",
+      "problemMatcher": []
+    },
+    {
+      "label": "CLI: Run Daemon Foreground",
+      "type": "shell",
+      "command": "pixi run python -m cli.main _run_daemon",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: CLI",
+      "type": "shell",
+      "command": "pixi run test-cli",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: Firmware Native",
+      "type": "shell",
+      "command": "pixi run test-firmware",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: All",
+      "type": "shell",
+      "command": "pixi run test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Firmware: Build (esp32dev)",
+      "type": "shell",
+      "command": "pixi run pio run -d firmware -e esp32dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "Firmware: Upload (esp32dev)",
+      "type": "shell",
+      "command": "pixi run pio run -d firmware -e esp32dev -t upload",
+      "problemMatcher": []
+    },
+    {
+      "label": "Firmware: Monitor Serial",
+      "type": "shell",
+      "command": "pixi run pio device monitor -d firmware -b 115200",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Firmware: Test Native",
+      "type": "shell",
+      "command": "pixi run pio test -d firmware -e native",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

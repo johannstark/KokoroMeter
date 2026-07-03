@@ -1,0 +1,17 @@
+{
+	"python-envs.defaultEnvManager": "renan-r-santos.pixi-code:pixi",
+	"python-envs.defaultPackageManager": "renan-r-santos.pixi-code:pixi",
+	"python.testing.pytestEnabled": true,
+	"python.testing.unittestEnabled": false,
+	"python.testing.pytestArgs": [
+		"cli/tests"
+	],
+	"python.analysis.extraPaths": [
+		"${workspaceFolder}"
+	],
+	"python.terminal.activateEnvironment": true,
+	"[python]": {
+		"editor.defaultFormatter": "charliermarsh.ruff"
+	},
+	"C_Cpp.default.configurationProvider": "platformio.platformio-ide"
+}

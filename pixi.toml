@@ -4,6 +4,21 @@ name = "KokoroMeter"
 platforms = ["osx-arm64"]
 version = "0.1.0"
 
+[tasks.test-cli]
+cmd = "pytest cli/tests"
+env = { PYTHONPATH = "." }
+
 [tasks]
+test-firmware = "cd firmware && pio test -e native"
+test = { depends-on = ["test-cli", "test-firmware"] }
 
 [dependencies]
+python = ">=3.14.6,<3.15"
+pyserial = ">=3.5,<4"
+nodejs = ">=26.4.0,<26.5"
+platformio = ">=6.1.19,<7"
+pip = ">=26.1.2,<27"
+typer = ">=0.26.8,<0.27"
+rich = ">=15.0.0,<16"
+ruff = ">=0.15.20,<0.16"
+pytest = ">=9.1.1,<10"
