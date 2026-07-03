@@ -1,4 +1,4 @@
-# KokoroMeter
+<img src="docs/KokoroMeter%20Banner.png" alt="KokoroMeter" width="1600" height="476">
 
 A physical desktop dashboard using an ESP32-32E and a Hosyond 4.0" 320x480 Touch Screen to monitor your Antigravity/Gemini API usage in real-time.
 
@@ -7,6 +7,7 @@ A physical desktop dashboard using an ESP32-32E and a Hosyond 4.0" 320x480 Touch
 - **Background Daemon:** Runs silently in the background, polling your Antigravity usage.
 - **USB Serial Connection:** Highly reliable and low-latency communication with the screen.
 - **Rich UI:** Built using LVGL (Light and Versatile Graphics Library) on the ESP32.
+- **Gemini/Antigravity monitoring:** Using [skainguyen1412/antigravity-usage](https://github.com/skainguyen1412/antigravity-usage) under the hood.
 
 ## Requirements
 - Python 3.10+
@@ -72,5 +73,10 @@ kokoro stop
 If you want to modify the code, run the tests, or debug the C++ firmware, please see the [Developer Documentation](docs/DEVELOPING.md).
 
 ***
+
+## Acknowledgments & Inspiration
+
+- **Clawdmeter:** [HermannBjorgvin/Clawdmeter](https://github.com/HermannBjorgvin/Clawdmeter) – A huge inspiration for the physical AI quota dashboard concept.
+- **antigravity-usage:** [skainguyen1412/antigravity-usage](https://github.com/skainguyen1412/antigravity-usage) – The excellent underlying Node.js API that powers KokoroMeter's quota checks.
 
 Made with love ♥️ in Colombia 🇨🇴
