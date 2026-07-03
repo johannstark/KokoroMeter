@@ -79,4 +79,6 @@ If you want to modify the code, run the tests, or debug the C++ firmware, please
 - **Clawdmeter:** [HermannBjorgvin/Clawdmeter](https://github.com/HermannBjorgvin/Clawdmeter) – A huge inspiration for the physical AI quota dashboard concept.
 - **antigravity-usage:** [skainguyen1412/antigravity-usage](https://github.com/skainguyen1412/antigravity-usage) – The excellent underlying Node.js API that powers KokoroMeter's quota checks.
 
+***
+
 Made with love ♥️ in Colombia 🇨🇴
