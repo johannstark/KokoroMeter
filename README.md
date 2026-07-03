@@ -66,13 +66,9 @@ kokoro status
 kokoro stop
 ```
 
----
-
 ## Developers & Contributors
 
 If you want to modify the code, run the tests, or debug the C++ firmware, please see the [Developer Documentation](docs/DEVELOPING.md).
-
-***
 
 ## Acknowledgments & Inspiration
 
