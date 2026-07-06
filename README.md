@@ -2,6 +2,9 @@
 
 A physical desktop dashboard using an ESP32-32E and a Hosyond 4.0" 320x480 Touch Screen to monitor your Antigravity/Gemini API usage in real-time.
 
+> [!WARNING]
+> THIS REPO IS A WORK IN PROGRESS
+
 ## Features
 - **Guided Setup:** Easily compile and flash the firmware to your ESP32 directly from the CLI.
 - **Background Daemon:** Runs silently in the background, polling your Antigravity usage.
