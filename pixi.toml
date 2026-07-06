@@ -22,3 +22,6 @@ typer = ">=0.26.8,<0.27"
 rich = ">=15.0.0,<16"
 ruff = ">=0.15.20,<0.16"
 pytest = ">=9.1.1,<10"
+
+[pypi-dependencies]
+kokoro = { path = ".", editable = true }
