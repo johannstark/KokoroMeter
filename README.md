@@ -1,21 +1,20 @@
 <img src="docs/KokoroMeter%20Banner.png" alt="KokoroMeter" width="1600" height="476">
 
-A physical desktop dashboard using an ESP32-32E and a Hosyond 4.0" 320x480 Touch Screen to monitor your Antigravity/Gemini API usage in real-time.
+A standalone physical dashboard using an ESP32 to monitor your Antigravity/Gemini API usage in real-time over Wi-Fi.
 
 > [!WARNING]
 > THIS REPO IS A WORK IN PROGRESS
 
 ## Features
-- **Guided Setup:** Easily compile and flash the firmware to your ESP32 directly from the CLI.
-- **Background Daemon:** Runs silently in the background, polling your Antigravity usage.
-- **USB Serial Connection:** Highly reliable and low-latency communication with the screen.
-- **Rich UI:** Built using LVGL (Light and Versatile Graphics Library) on the ESP32.
-- **Gemini/Antigravity monitoring:** Using [skainguyen1412/antigravity-usage](https://github.com/skainguyen1412/antigravity-usage) under the hood.
+- **Standalone Wi-Fi:** Connects directly to Google's Cloud Code APIs over Wi-Fi—no PC connection required after initial setup!
+- **Multi-Screen Support:** Compile for either a large Hosyond 4.0" TFT Touch Screen (using LVGL) or a small 0.96" SSD1306 OLED (using Adafruit GFX).
+- **Interactive Wizard:** Easily configure Wi-Fi, OAuth credentials, and flash the firmware using a single CLI command.
+- **Gemini/Antigravity monitoring:** Inspired by [skainguyen1412/antigravity-usage](https://github.com/skainguyen1412/antigravity-usage).
 
 ## Requirements
-- Python 3.10+
+- Python 3.14+
 - [PlatformIO](https://platformio.org/) (Required for flashing the firmware)
-- Node.js (Required for the underlying `antigravity-usage` API)
+- Google Cloud OAuth2 credentials (Client ID, Secret, and Refresh Token)
 
 ---
 
@@ -28,55 +27,41 @@ pixi install
 pixi shell
 ```
 
-## 2. Firmware Setup
+## 2. Setup & Flashing
 
-Plug your ESP32 into a USB port on your computer, and run the setup wizard to compile and flash the KokoroMeter firmware:
+Plug your ESP32 into a USB port on your computer, and run the interactive setup wizard:
 
 ```bash
 kokoro setup
 ```
 
-## 3. Authentication & Verification
+The wizard will prompt you for:
+1. Your **Wi-Fi SSID** and **Password**.
+2. Your **Google OAuth2 Client ID, Secret, and Refresh Token** (Follow Google's standard OAuth Desktop app flow to obtain these).
+3. Your **Hardware Profile** (Choose between the Hosyond 4.0" or the SSD1306 0.96" screen).
 
-KokoroMeter uses `antigravity-usage` under the hood to fetch your API quota. Before starting the dashboard, you must authenticate.
+The CLI will automatically generate the `config.h` file and flash the firmware to your ESP32 via PlatformIO. 
 
-1. **Authenticate:** Run the following command and follow the prompts to log in (or simply export your `GEMINI_API_KEY` environment variable):
-   ```bash
-   npx antigravity-usage auth
-   ```
+## 3. Usage
 
-2. **Verify CLI access:** Ensure you can see your quota directly in the terminal:
-   ```bash
-   npx antigravity-usage quota
-   ```
-
-## 4. Running the Dashboard
-
-Once flashed and authenticated, you can use the `kokoro` CLI to manage the background daemon that streams data to your screen.
-
-**Start the daemon in the background:**
-```bash
-kokoro start
-```
-
-**Check if the daemon is running:**
-```bash
-kokoro status
-```
-
-**Stop the daemon:**
-```bash
-kokoro stop
-```
+Once flashed, KokoroMeter is completely standalone! You can unplug it from your PC and plug it into any standard 5V USB wall charger. It will automatically connect to Wi-Fi, refresh its OAuth token, and cycle through your API quotas.
 
 ## Developers & Contributors
 
-If you want to modify the code, run the tests, or debug the C++ firmware, please see the [Developer Documentation](docs/DEVELOPING.md).
+If you want to modify the C++ firmware or run tests, please see the [Developer Documentation](docs/DEVELOPING.md).
+
+## AI Assistants
+
+This project contains rules for AI coding assistants. 
+- The source of truth for these rules is `AGENTS.md` at the repository root.
+- `CLAUDE.md` and `GEMINI.md` are symbolic links pointing to `AGENTS.md`, ensuring all agents follow the same unified rules.
+- **Agent Skills:** A custom `hosyond-4in-esp32-screen` skill is included in the `.agents/skills/` folder to provide AI assistants with hardware context when developing for the Hosyond display.
 
 ## Acknowledgments & Inspiration
 
 - **Clawdmeter:** [HermannBjorgvin/Clawdmeter](https://github.com/HermannBjorgvin/Clawdmeter) – A huge inspiration for the physical AI quota dashboard concept.
-- **antigravity-usage:** [skainguyen1412/antigravity-usage](https://github.com/skainguyen1412/antigravity-usage) – The excellent underlying Node.js API that powers KokoroMeter's quota checks.
+- **gemini-pulse:** [gemini-pulse](https://github.com/your-username/gemini-pulse) - The core networking and C++ JSON parsing logic used in our standalone firmware.
+- **antigravity-usage:** [skainguyen1412/antigravity-usage](https://github.com/skainguyen1412/antigravity-usage) – The excellent Node.js API that inspired KokoroMeter's quota logic.
 
 ***
 

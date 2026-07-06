@@ -9,3 +9,4 @@ KokoroMeter is a physical desktop dashboard running on an ESP32-32E with a Hosyo
 - **DOCSTRINGS:** Keep all Python code documented in Google-styled docstrings.
 - **DOCUMENTATION:** Every change an agent does must be done with a check and adjustment to `README.md` and `AGENTS.md` if necessary.
 - **FORMATTING:** For Python code, use `ruff` to check formats.
+- **HARDWARE SKILLS:** When working with the UI or hardware configuration for the Hosyond 4-inch display, you MUST use the `hosyond-esp32-4in-screen` skill (located in `.agents/skills/hosyond-4in-esp32-screen/SKILL.md`) for hardware reference and development guidelines.

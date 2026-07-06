@@ -1,6 +1,6 @@
 # Developing KokoroMeter
 
-This guide covers day-to-day development for the Python CLI/daemon and ESP32 firmware in VS Code.
+This guide covers day-to-day development for the Python CLI and ESP32 firmware in VS Code.
 
 ## Quick Start
 
@@ -31,18 +31,15 @@ The repository ships with development configuration in `.vscode/`:
 
 Use **Terminal -> Run Task** in VS Code.
 
-### CLI and daemon tasks
+### CLI tasks
 
-- `CLI: Status`: check daemon status.
-- `CLI: Start Daemon`: start the daemon in background mode.
-- `CLI: Stop Daemon`: stop the daemon.
-- `CLI: Run Daemon Foreground`: run daemon in foreground for logs/debugging.
-- `CLI: Setup Firmware (Upload)`: run guided firmware compile/upload via CLI.
+- `CLI: Setup Firmware (Upload)`: run interactive firmware compile/upload wizard via CLI.
 
 ### Firmware tasks
 
-- `Firmware: Build (esp32dev)`: compile firmware for ESP32.
-- `Firmware: Upload (esp32dev)`: flash firmware to board.
+- `Firmware: Build (Hosyond)`: compile firmware for the large TFT screen.
+- `Firmware: Build (SSD1306)`: compile firmware for the small OLED screen.
+- `Firmware: Upload (Hosyond)`: flash Hosyond firmware to board.
 - `Firmware: Monitor Serial`: open serial monitor at 115200.
 
 ### Test tasks
@@ -61,7 +58,6 @@ pixi run test
 
 Open **Run and Debug** and choose one of the following profiles:
 
-- `Python: Debug Kokoro Command`: debug one command (`status`, `start`, `stop`, `setup`).
-- `Python: Debug Daemon Foreground`: debug daemon loop behavior.
+- `Python: Debug Kokoro Setup`: debug the interactive setup command.
 - `Python: Debug CLI Tests`: debug pytest tests for the CLI package.
-- `PlatformIO: Debug Firmware (esp32dev)`: debug firmware with PlatformIO-capable hardware setup.
+- `PlatformIO: Debug Firmware`: debug firmware with PlatformIO-capable hardware setup.
